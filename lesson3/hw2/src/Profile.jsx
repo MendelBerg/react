@@ -14,7 +14,7 @@ export default (props) => {
   return (
     <div className="profile">
       <div className="profile__name">
-        {user.firstName} {user.lastName}
+        {user.firstNam} {user.lastNam}
       </div>
       <div className="profile__birth">
         {`Was born ${date} ${month} ${year} in ${user.birthPlace}`}
