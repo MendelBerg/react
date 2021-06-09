@@ -1,14 +1,13 @@
 import React from 'react';
+import moment from 'moment';
 
 export default (props) => {
   const user = props.userData;
-  const birthDate = new Date(user.birthDate);
 
-  const date = birthDate.getDate();
-  const month = birthDate.toLocaleString('en', {
-    month: 'short',
-  });
-  const year = birthDate.getFullYear().toString().substr(-2);
+  const [date, month, year] = moment(user.birthDate)
+    .format('DD MMM YY')
+    .split(' ');
+  
 
   return (
     <div className="profile">
