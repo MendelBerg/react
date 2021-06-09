@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Toggle from './Toggle.jsx';
+import Toggler from './Toggler.jsx';
 import './index.scss';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Toggle />, rootElement);
+ReactDOM.render(<Toggler />, rootElement);

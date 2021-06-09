@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const offText = 'Off';
 const onText = 'On';
 
-class Toggle extends Component {
+class Toggler extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,4 +26,4 @@ class Toggle extends Component {
   }
 }
 
-export default Toggle;
+export default Toggler;
