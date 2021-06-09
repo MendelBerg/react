@@ -2,11 +2,13 @@ import React from 'react';
 
 export default (props) => {
   const user = props.userData;
-  const date = user.birthDate.getDate();
-  const month = user.birthDate.toLocaleString('en', {
+  const birthDate = new Date(user.birthDate);
+
+  const date = birthDate.getDate();
+  const month = birthDate.toLocaleString('en', {
     month: 'short',
   });
-  const year = user.birthDate.getFullYear().toString().substr(-2);
+  const year = birthDate.getFullYear().toString().substr(-2);
 
   return (
     <div className="profile">
