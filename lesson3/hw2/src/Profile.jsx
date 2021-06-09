@@ -3,10 +3,7 @@ import moment from 'moment';
 
 export default (props) => {
   const user = props.userData;
-
-  const [date, month, year] = moment(user.birthDate)
-    .format('DD MMM YY')
-    .split(' ');
+  const formatedData = moment(user.birthDate).format('DD MMM YY');
   
 
   return (
@@ -15,7 +12,7 @@ export default (props) => {
         {user.firstName} {user.lastName}
       </div>
       <div className="profile__birth">
-        {`Was born ${date} ${month} ${year} in ${user.birthPlace}`}
+        {`Was born ${formatedData} in ${user.birthPlace}`}
       </div>
     </div>
   );
