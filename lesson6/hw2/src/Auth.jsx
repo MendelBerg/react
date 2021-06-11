@@ -16,14 +16,22 @@ class Auth extends Component {
   }
 
   toggleLogin() {
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn,
+    });
+  }
+
+  handleLogin() {
     this.toggleSpinner();
 
     setTimeout(() => {
       this.toggleSpinner();
-      this.setState({
-        isLoggedIn: !this.state.isLoggedIn,
-      });
+      this.toggleLogin();
     }, 2000);
+  }
+
+  handleLogout() {
+    this.toggleLogin();
   }
 
   render() {
@@ -32,9 +40,9 @@ class Auth extends Component {
     }
 
     return this.state.isLoggedIn ? (
-      <Login onLogin={this.toggleLogin.bind(this)} />
+      <Login onLogin={this.handleLogin.bind(this)} />
     ) : (
-      <Logout onLogout={this.toggleLogin.bind(this)} />
+      <Logout onLogout={this.handleLogout.bind(this)} />
     );
   }
 }
