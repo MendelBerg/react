@@ -8,11 +8,6 @@ class UsersList extends React.Component {
     totalItems: this.props.users.length,
   }
 
-  countItemsPerPage(){
-    const amount = this.state.totalItems - (this.state.currentPage - 1) * 3;
-    return  amount > 3 ? 3 : amount;
-  }
-
   goPrev(){
     this.setState({
       currentPage: this.state.currentPage - 1,
@@ -25,25 +20,20 @@ class UsersList extends React.Component {
     });
   }
 
-  render() {
+  getUsersPageList() {
+    const firstOutIndex = this.state.totalItems;
     const indexFrom = (this.state.currentPage - 1) * 3;
-    const indexTo = (this.state.totalItems - indexFrom) > 3 
-        ? indexFrom + 3 
-        : this.state.totalItems;
+    const indexTo = (firstOutIndex - indexFrom) > 3 ? indexFrom + 3 : firstOutIndex;
       
-    const usersPage = this.props.users.slice(indexFrom, indexTo);
+    return this.props.users.slice(indexFrom, indexTo);
+  }
 
+  render() {
     return (
       <div>
-        <Pagination 
-          goPrev={this.goPrev.bind(this)} 
-          goNext={this.goNext.bind(this)} 
-          {...this.state} 
-          itemsPerPage={this.countItemsPerPage()} 
-        />
-
+        <Pagination goPrev={() => this.goPrev()} goNext={() => this.goNext()} {...this.state} />
         <ul className="users">
-             {usersPage.map(user => <User key={user.id} {...user} />)} 
+             {this.getUsersPageList().map(user => <User key={user.id} {...user} />)} 
         </ul>
       </div>
     );  
