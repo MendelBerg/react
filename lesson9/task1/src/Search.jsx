@@ -19,7 +19,7 @@ class Search extends Component {
           onChange={this.handleChange} 
           type="text" 
           className="search__input" 
-          alue={this.state.value} 
+          value={this.state.value} 
         />
         <button className="search__button">Search</button>
       </form>
