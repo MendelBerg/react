@@ -24,7 +24,7 @@ class ConnectionStatus extends Component {
       online: true,
       offline: false,
       classEl: "status",
-      textEl: "Online",
+      textEl: "online",
     });
   }
 
@@ -33,7 +33,7 @@ class ConnectionStatus extends Component {
       online: false,
       offline: true,
       classEl: "status status_offline",
-      textEl: "Offline",
+      textEl: "offline",
     });
   }
 
