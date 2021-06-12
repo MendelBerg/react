@@ -20,7 +20,7 @@ class UsersList extends React.Component {
     });
   }
 
-  getUsersPageList() {
+  getListForPage() {
     const firstOutIndex = this.state.totalItems;
     const indexFrom = (this.state.currentPage - 1) * 3;
     const indexTo = (firstOutIndex - indexFrom) > 3 ? indexFrom + 3 : firstOutIndex;
@@ -33,7 +33,7 @@ class UsersList extends React.Component {
       <div>
         <Pagination goPrev={() => this.goPrev()} goNext={() => this.goNext()} {...this.state} />
         <ul className="users">
-             {this.getUsersPageList().map(user => <User key={user.id} {...user} />)} 
+             {this.getListForPage().map(user => <User key={user.id} {...user} />)} 
         </ul>
       </div>
     );  
