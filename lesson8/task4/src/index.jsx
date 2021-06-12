@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Auth from './Auth.jsx';
+import User from './User.jsx';
 import './index.scss';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Auth />, rootElement);
+ReactDOM.render(<User userId="facebook"/>, rootElement);
