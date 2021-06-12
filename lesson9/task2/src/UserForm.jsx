@@ -24,11 +24,18 @@ class UserForm extends Component {
 
   render(){
     return (
-      <form className="login-form" onSubmit={this.handleSubmit}>
+      <form className="login-form" onSubmit={() => this.props.onSubmit(this.state)}>
         <h1 className="form-title">Profile</h1>
         <div className="form-control">
           <label className="form-label" htmlFor="name">Name</label>
-          <input className="form-input" type="text" id="name" name={this.state.name} onChange={this.handleChange} />
+          <input 
+            className="form-input" 
+            type="text" 
+            id="name" 
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange} 
+          />
         </div>
         <div className="form-control">
           <label className="form-label" htmlFor="student">Student</label>
