@@ -17,10 +17,10 @@ class UserForm extends Component {
     });
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.onSubmit(this.state);
-  }
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   this.props.onSubmit(this.state);
+  // }
 
   render(){
     return (
