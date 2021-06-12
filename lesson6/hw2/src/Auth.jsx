@@ -9,29 +9,26 @@ class Auth extends Component {
     isLoggedIn: true,
   };
 
-  toggleSpinner() {
-    this.setState({
-      loading: !this.state.loading,
-    });
-  }
-
-  toggleLogin() {
-    this.setState({
-      isLoggedIn: !this.state.isLoggedIn,
-    });
+  toggleSpinner(loading) {
+    this.setState({loading});
   }
 
   handleLogin() {
-    this.toggleSpinner();
+    this.toggleSpinner(true);
 
     setTimeout(() => {
-      this.toggleSpinner();
-      this.toggleLogin();
+      this.toggleSpinner(false);
+
+      this.setState({
+        isLoggedIn: false,
+      });
     }, 2000);
   }
 
   handleLogout() {
-    this.toggleLogin();
+    this.setState({
+      isLoggedIn: true,
+    });
   }
 
   render() {
