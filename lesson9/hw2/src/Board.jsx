@@ -3,27 +3,27 @@ import Square from './Square.jsx';
 
 class Board extends React.Component {
   renderSquare(i){
+    console.log(i)
+
     return <Square 
             value={this.props.squares[i]} 
             onClick={() => this.props.onClick(i)} 
           />
   }
 
-  // renderBoard(){
-  //   const arr = [[0,1,2], [3,4,5], [6,7,8]];
+  renderBoard(){
+    const board = [[0,1,2], [3,4,5], [6,7,8]];
 
-  //   return arr.map(row => (
-  //     <div className="board-row">
-  //       {row.map(square => this.renderSquare(square))}
-  //     </div>
-  //   ));
-  // }
+    return board.map(row => 
+      <div className="board-row">
+        {row.map(square => this.renderSquare(square))}
+      </div>
+    );
+  }
 
 
   render() {
     // return <div>{this.renderBoard()}</div>;
-
-
 
     return (
       <div>
