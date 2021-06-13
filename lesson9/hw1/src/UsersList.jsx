@@ -16,7 +16,7 @@ class UsersList extends Component {
     return value === '' 
       ? this.props.users 
       : this.props.users.filter(
-          ({name}) => name.toLowerCase() === value.toLowerCase()
+          ({name}) => name.toLowerCase().includes(value.toLowerCase())
         )
   }
 
