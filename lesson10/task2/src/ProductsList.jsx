@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 class ProductsList extends Component {
 
   render(){
-    const total = this.props.cardItems.reduce(
+    const total = this.props.cartItems.reduce(
       (acc, item) => acc + item.price,      
     0);
     
     return(
       <div className="products">
         <ul className="products__list">
-          {this.props.cardItems.map(({id, name, price}) => (
+          {this.props.cartItems.map(({id, name, price}) => (
             <li key={id} className="products__list-item">
               <span className="products__item-name">{name}</span>
               <span className="products__item-price">{`$${price}`}</span>
