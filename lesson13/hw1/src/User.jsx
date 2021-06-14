@@ -7,10 +7,6 @@ class User extends Component {
     location: null,
   };
 
-  componentDidMount() {
-    this.fetchUserData(this.props.match.params.userId);
-  }
-
   fetchUserData = userId => {
     fetch(`https://api.github.com/users/${userId}`)
     .then(response => response.json())
@@ -24,6 +20,8 @@ class User extends Component {
   };
 
   render() {
+    this.fetchUserData(this.props.match.params.userId);
+
     return (
       <div className="user">
         <img alt="User Avatar" src={this.state.avatar_url} className="user__avatar" />
