@@ -11,7 +11,7 @@ const Expand = ({isOpen, title, children, onClick}) => {
             : <i className="fas fa-chevron-up"></i>
         }</button>
       </div>
-      {!isOpen ? null : <div className="expand__content">{children}</div>}
+      {!isOpen ? null :(<div className="expand__content">{children}</div>)}
     </div>
   );
 };
