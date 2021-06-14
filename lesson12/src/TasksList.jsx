@@ -12,12 +12,53 @@ class TasksList extends Component {
       { text: "Buy meat", done: true, id: 5 },
     ],
   };
+
+  onCreate = (text) => {
+    const { tasks } = this.state;
+    const newTask = {
+      id: Math.random(),
+      text,
+      done: false,
+    };
+
+    const updatedTasks = tasks.concat(newTask);
+    this.setState({ tasks: updatedTasks });
+  };
+
+  handleTaskStatusChange = (id) => {
+    const updatedTasks = this.state.tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          done: !task.done,
+        };
+      }
+
+      return task;
+    });
+
+    this.setState({ tasks: updatedTasks });
+  };
+
+  handleTaskDelete = (id) => {
+    const updatedTasks = [...this.state.tasks].filter((task) => task.id !== id);
+    this.setState({ tasks: updatedTasks });
+  };
+
   render() {
+    const sortedList = [...this.state.tasks].sort((a, b) => a.done - b.done);
     return (
       <main className="todo-list">
-        <CreateTaskInput />
+        <CreateTaskInput onCreate={this.onCreate} />
         <ul className="list">
-          {this.state.tasks.map(task => <Task key={task.id} {...task} />)}        
+          {sortedList.map((task) => (
+            <Task
+              key={task.id}
+              {...task}
+              onChange={this.handleTaskStatusChange}
+              onDelete={this.handleTaskDelete}
+            />
+          ))}
         </ul>
       </main>
     );
