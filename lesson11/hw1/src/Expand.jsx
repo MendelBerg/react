@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Expand = ({isOpen, title, children, onClick}) => {
-  const content = !isOpen ? null : <div className="expand__content">{children}</div>; 
+  const content = !isOpen ? '' : children; 
   const btn = !isOpen 
       ? <i className="fas fa-chevron-down"></i> 
       : <i className="fas fa-chevron-up"></i>; 
@@ -14,7 +14,7 @@ const Expand = ({isOpen, title, children, onClick}) => {
           {btn}
         </button>
       </div>
-      {content}
+      <div className="expand__content">{content}</div>
     </div>
   );
 };
