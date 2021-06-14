@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import App from './App.jsx';
 
-ReactDOM.render(
-  <h1 className="title">Todo List</h1>, 
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
