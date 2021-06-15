@@ -4,15 +4,15 @@ import ClassNames from 'classnames';
 const ConnectionStatus = () => {
   const [isOffline, setIsOffline] = useState(false);
 
+  const onlineHandler = () => {
+    setIsOffline(false);
+  };
+
+  const offlineHandler = () => {
+    setIsOffline(true);
+  };
+
   useEffect(() => {
-    const onlineHandler = () => {
-      setIsOffline(false);
-    };
-
-    const offlineHandler = () => {
-      setIsOffline(true);
-    };
-
     window.addEventListener('online', onlineHandler);
     window.addEventListener('offline', offlineHandler);
 
