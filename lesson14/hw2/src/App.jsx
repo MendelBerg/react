@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Clock from './Clock.jsx';
 
 const App = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
   return (
-    <div>
-      Hello
-    </div>
+    <>
+      <button onClick={() => setIsVisible(!isVisible)}>Toggle</button>
+      {isVisible && <Clock location="London" offset={0} />}
+      {isVisible && <Clock location="Kyiv" offset={2} />}
+      {isVisible && <Clock location="New York" offset={-5} />}
+    </>
   );
 };
 
