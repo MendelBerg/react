@@ -23,7 +23,7 @@ class Board extends React.Component {
 
 
   render() {
-    // return <div>{this.renderBoard()}</div>;
+    return <div>{this.renderBoard()}</div>;
 
     return (
       <div>
